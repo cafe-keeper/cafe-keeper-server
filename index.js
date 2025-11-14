@@ -1,3 +1,6 @@
+'use strict';
+console.log('server file is connected, but not necessarily up on its PORT');
+
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
