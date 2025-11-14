@@ -18,10 +18,8 @@ app.get('/', (req, res) => {
   res.json({ message: 'Cafe Keeper Server is running!' });
 });
 
-
-
-
-app.get('*', (req,res) => {
+// Catch-all route for 404 errors (must be after all other routes)
+app.use((req, res) => {
   res.status(404).send('Not Found');
 });
 
@@ -29,7 +27,6 @@ app.get('*', (req,res) => {
 app.use((error, request, response, next) => {
   response.status(500).send(error.message);
 });
-
 
 // Start server
 app.listen(PORT, () => {
