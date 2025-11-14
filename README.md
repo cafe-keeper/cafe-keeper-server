@@ -22,19 +22,22 @@ Before you begin, ensure you have the following installed:
 ## 🛠️ Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/cafe-keeper/cafe-keeper-server.git
    cd cafe-keeper-server
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Set up environment variables**
-   
+
    Create a `.env` file in the root directory:
+
    ```env
    # Server Configuration
    PORT=3000
@@ -57,11 +60,13 @@ Before you begin, ensure you have the following installed:
 4. **Set up the PostgreSQL database**
 
    Create the database:
+
    ```bash
    createdb cafe_keeper
    ```
 
    Or using psql:
+
    ```sql
    psql postgres
    CREATE DATABASE cafe_keeper;
@@ -69,6 +74,7 @@ Before you begin, ensure you have the following installed:
    ```
 
 5. **Run database migrations** (if applicable)
+
    ```bash
    npm run migrate
    ```
@@ -76,11 +82,13 @@ Before you begin, ensure you have the following installed:
 ## 🚀 Running the Server
 
 ### Development Mode
+
 ```bash
 npm run dev
 ```
 
 ### Production Mode
+
 ```bash
 npm start
 ```
@@ -109,17 +117,20 @@ cafe-keeper-server/
 ## 🔌 API Endpoints
 
 ### Authentication
+
 - `POST /api/auth/register` - Register a new user
 - `POST /api/auth/login` - Login user
 - `POST /api/auth/logout` - Logout user
 
 ### Users
+
 - `GET /api/users` - Get all users (admin only)
 - `GET /api/users/:id` - Get user by ID
 - `PUT /api/users/:id` - Update user
 - `DELETE /api/users/:id` - Delete user
 
 ### Menu Items
+
 - `GET /api/menu` - Get all menu items
 - `GET /api/menu/:id` - Get menu item by ID
 - `POST /api/menu` - Create new menu item (admin only)
@@ -127,6 +138,7 @@ cafe-keeper-server/
 - `DELETE /api/menu/:id` - Delete menu item (admin only)
 
 ### Orders
+
 - `GET /api/orders` - Get all orders
 - `GET /api/orders/:id` - Get order by ID
 - `POST /api/orders` - Create new order
@@ -134,6 +146,7 @@ cafe-keeper-server/
 - `DELETE /api/orders/:id` - Cancel order
 
 ### Inventory
+
 - `GET /api/inventory` - Get all inventory items
 - `POST /api/inventory` - Add inventory item
 - `PUT /api/inventory/:id` - Update inventory item
@@ -155,6 +168,7 @@ npm run test:watch
 ## 🗄️ Database Schema
 
 ### Users Table
+
 ```sql
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -168,6 +182,7 @@ CREATE TABLE users (
 ```
 
 ### Menu Items Table
+
 ```sql
 CREATE TABLE menu_items (
   id SERIAL PRIMARY KEY,
@@ -183,6 +198,7 @@ CREATE TABLE menu_items (
 ```
 
 ### Orders Table
+
 ```sql
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY,
@@ -195,6 +211,7 @@ CREATE TABLE orders (
 ```
 
 ### Order Items Table
+
 ```sql
 CREATE TABLE order_items (
   id SERIAL PRIMARY KEY,
@@ -240,15 +257,18 @@ CREATE TABLE order_items (
 ## 🐛 Troubleshooting
 
 ### Database Connection Issues
+
 - Ensure PostgreSQL is running: `brew services list`
 - Check database credentials in `.env`
 - Verify database exists: `psql -l`
 
 ### Port Already in Use
+
 - Change the `PORT` in `.env`
 - Kill the process using the port: `lsof -ti:3000 | xargs kill`
 
 ### Module Not Found
+
 - Delete `node_modules` and reinstall: `rm -rf node_modules && npm install`
 
 ## 📄 License
