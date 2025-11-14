@@ -18,6 +18,19 @@ app.get('/', (req, res) => {
   res.json({ message: 'Cafe Keeper Server is running!' });
 });
 
+
+
+
+app.get('*', (req,res) => {
+  res.status(404).send('Not Found');
+});
+
+// eslint-disable-next-line no-unused-vars
+app.use((error, request, response, next) => {
+  response.status(500).send(error.message);
+});
+
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
