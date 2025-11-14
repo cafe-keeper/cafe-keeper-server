@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Basic health check route
 app.get('/', (req, res) => {
+  console.log('Health check route hit');
   res.json({ message: 'Cafe Keeper Server is running!' });
 });
 
